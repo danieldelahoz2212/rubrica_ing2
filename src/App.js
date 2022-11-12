@@ -1,24 +1,24 @@
-import logo from './logo.svg';
+import { React, useState } from "react";
 import './App.css';
-
+import Home from "./pantallas/home";
+import Login from "./pantallas/Login";
+import Fireapp from "./firebase/credenciales";
+import {getAuth, onAuthStateChanged} from "firebase/auth"
+import 'bootstrap/dist/css/bootstrap.min.css';
+const auth = getAuth(Fireapp);
 function App() {
+  const [user, setuser] = useState(null);
+    onAuthStateChanged(auth, (usuarioFirebase) => {
+      if (usuarioFirebase) {
+        setuser(usuarioFirebase);
+      }else{
+        setuser(null);
+      }
+    });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {user? < Home /> : < Login/> }
+    </>
   );
 }
 
