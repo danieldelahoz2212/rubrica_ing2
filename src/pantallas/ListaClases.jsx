@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { collection, addDoc, deleteDoc, doc, onSnapshot, updateDoc } from 'firebase/firestore'
-import { listaC} from '../firebase/credenciales';
+import { listaC } from '../firebase/credenciales';
 
 
 function ListaClases() {
@@ -102,11 +102,13 @@ function ListaClases() {
                     <ul className='list-group'>
                         {
                             lista.map(item => (
-                                <li className='list-group-item' key={item.id}>
-                                    <span className='lead'>{item.nombreMateria} {item.InfDescripcion}</span>
-                                    <button className='btn btn-danger btn-sm float-end mx-2' onClick={() => eliminar(item.id)}>Eliminar</button>
+                                <div className="container pt-2">
+                                <li className='list-group-item text-center' key={item.id}>
+                                    <span className='lead'><span className='fw-bold'>{item.nombreMateria}</span> <br /> <span className='fw-normal'>{item.InfDescripcion}</span></span>
+                                    <button className='btn btn-danger btn-sm float-end mx-2 ' onClick={() => eliminar(item.id)}>Eliminar</button>
                                     <button className='btn btn-warning btn-sm float-end' onClick={() => editar(item)}>Editar</button>
                                 </li>
+                                </div>
                             ))
                         }
                     </ul>
@@ -118,14 +120,12 @@ function ListaClases() {
                                 modoEditar ? 'Editar Materia' : 'Agregar Materia'
                             }
                         </h4>
-
                         <input type="text"
                             className='form-control mb-2'
                             placeholder='Ingresar Materia'
                             value={materia}
                             onChange={(e) => setMateria(e.target.value)} />
-
-                        <input type="text"
+                        <textarea type="text"
                             className='form-control mb-2'
                             placeholder='Ingresar Descripcion'
                             value={descripcion}
