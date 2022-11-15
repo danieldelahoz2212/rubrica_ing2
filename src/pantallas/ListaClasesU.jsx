@@ -29,10 +29,10 @@ function ListaClases() {
                     <ul className='list-group'>
                         {
                             lista.map(item => (
-                                <div className="container pt-2">
+                                <div className="container pt-2 rounded">
                                 <li className='list-group-item text-center' key={item.id}>
                                     <span className='lead'><span className='fw-bold'>{item.nombreMateria}</span> <br /> <span className='fw-normal'>{item.InfDescripcion}</span></span><br />
-                                    <button className="btn btn-dark btn-sm mt-2" >Mas info</button>
+                                    <button className="btn btn-dark btn-sm mt-2" >Mas Info</button>
                                 </li>
                                 </div>
                             ))
