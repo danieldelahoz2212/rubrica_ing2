@@ -1,5 +1,5 @@
 import React from "react";
-import Home from "./pantallas/Home";
+import Home from "./pantallas/home";
 import Login from "./pantallas/Login";
 import Register from "./vistas/Register";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth"
@@ -50,24 +50,24 @@ function App() {
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav mr-auto navbar-nav">
               <li className='btn btn-dark btn-sm mx-1 '>
-                <a className='nav-link active'>
+                <div className='nav-link active'>
                   <Link to='/home' className='nav-link'>Inicio</Link>
-                </a>
+                </div>
               </li>
               <li className='btn btn-dark btn-sm mx-1'>
-                <a className='nav-link active'>
+                <div className='nav-link active'>
                   <Link to='/login' className='nav-link'>Inisiar Sesion</Link>
-                </a>
+                </div>
               </li>
               <li className='btn btn-dark btn-sm mx-1'>
-                <a className='nav-link active'>
+                <div className='nav-link active'>
                   <Link to='/register' className='nav-link'>Registrarse</Link>
-                </a>
+                </div>
               </li>
               <li className='btn btn-dark btn-sm mx-1'>
-                <a className='nav-link active'>
+                <div className='nav-link active'>
                   <Link to='/' className='nav-link'>nosotros</Link>
-                </a>
+                </div>
               </li>
               {
                 User ? <button className="btn btn-dark btn-sm  float-right mx-1" onClick={() => signOut(auth)}>Cerrar Sesion</button> : ""
